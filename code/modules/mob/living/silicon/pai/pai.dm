@@ -15,7 +15,7 @@
 	var/obj/item/radio/radio		// Our primary radio
 
 	var/chassis = "repairbot"   // A record of your chosen chassis.
-	var/global/list/possible_chassis = list(
+	var/list/possible_chassis = list(
 		"Drone" = "repairbot",
 		"Cat" = "cat",
 		"Mouse" = "mouse",
@@ -29,7 +29,7 @@
 		"Snake" = "snake"
 		)
 
-	var/global/list/possible_say_verbs = list(
+	var/list/possible_say_verbs = list(
 		"Robotic" = list("states","declares","queries"),
 		"Natural" = list("says","yells","asks"),
 		"Beep" = list("beeps","beeps loudly","boops"),

@@ -762,6 +762,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	item = /obj/item/storage/box/syndie_kit/decoy
 	cost = 20
 
+/datum/uplink_item/device_tools/pai/syndicate
+	name = "Syndicate Personal AI"
+	desc = "(TODO) A robust personal artificial intelligence."
+	reference = "SPAI"
+	item = /obj/item/paicard/syndicate
+	cost = 50
+	refundable = TRUE
+
 ////////////////////////////////////////
 // MARK: SPACE SUITS AND HARDSUITS
 ////////////////////////////////////////

@@ -22,6 +22,7 @@ GLOBAL_LIST_INIT(role_playtime_requirements, list(
 
 	// DUO ANTAGS
 	ROLE_GUARDIAN = 20,
+	ROLE_SYNDICATE_PAI = 20,
 
 	// TEAM ANTAGS
 	// Higher numbers here, because they require more experience to be played correctly

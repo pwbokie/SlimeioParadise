@@ -16,10 +16,6 @@
 	var/current_emotion = 1
 	resistance_flags = FIRE_PROOF | ACID_PROOF | INDESTRUCTIBLE
 
-/obj/item/paicard/syndicate
-	name = "syndicate personal AI device"
-	faction = list("syndicate")
-
 /obj/item/paicard/New()
 	..()
 	overlays += "pai-off"
