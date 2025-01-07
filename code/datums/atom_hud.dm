@@ -26,7 +26,8 @@ GLOBAL_LIST_INIT(huds, list(
 	ANTAG_HUD_EVENTMISC = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_BLOB = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_ZOMBIE = new/datum/atom_hud/antag(),
-	ANTAG_HUD_MIND_FLAYER = new/datum/atom_hud/antag/hidden()
+	ANTAG_HUD_MIND_FLAYER = new/datum/atom_hud/antag/hidden(),
+	DATA_HUD_FACTION = new/datum/atom_hud/data/faction()
 	))
 
 /datum/atom_hud

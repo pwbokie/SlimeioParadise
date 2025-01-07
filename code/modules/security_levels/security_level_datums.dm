@@ -143,3 +143,18 @@
 	status_display_data = "deltaalert"
 	elevating_to_announcement_title = "Attention! Delta security level reached!"
 	elevating_to_announcement_text = "The station's self-destruct mechanism has been engaged. All crew are instructed to abandon the station immediately. This is not a drill."
+
+/**
+ * YELLOW
+ *
+ * Factions protocol
+ */
+/datum/security_level/yellow
+	name = "yellow"
+	number_level = SEC_LEVEL_YELLOW
+	elevating_to_sound = 'sound/misc/trumpet_fanfare.ogg'
+	ai_announcement_sound = 'sound/AI/yellow.ogg'
+	color = "yellow"
+	status_display_data = "yellowalert"
+	elevating_to_announcement_title = "Attention! Yellow Alert!"
+	elevating_to_announcement_text = "Factions protocol engaged! All crew, report to your assigned faction leader for instruction."

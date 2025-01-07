@@ -63,6 +63,9 @@
 /datum/atom_hud/data/pressure
 	hud_icons = list(PRESSURE_HUD)
 
+/datum/atom_hud/data/faction
+	hud_icons = list(FACTION_HUD)
+
 /// Pressure hud is special, because it doesn't use hudatoms. SSair manages its images, so tell SSair to add the initial set.
 /datum/atom_hud/data/pressure/add_hud_to(mob/user)
 	..()
@@ -508,6 +511,15 @@
 	holder.alpha = 130
 	holder.plane = ABOVE_LIGHTING_PLANE
 	holder.appearance_flags = RESET_COLOR | RESET_ALPHA | RESET_TRANSFORM
+
+/*~~~~~~~~~~~~~~
+  FACTIONS HUD
+~~~~~~~~~~~~~~~*/
+/mob/living/carbon/human/proc/factions_hud_set_faction()
+	if (src.factions_mode_allegiance)
+		var/datum/faction/F = src.factions_mode_allegiance
+		var/image/holder = hud_list[FACTION_HUD]
+		holder.icon_state = "factionhud[F.icon]" // faction icon, which is set during faction Initialization
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	I'll just put this somewhere near the end...

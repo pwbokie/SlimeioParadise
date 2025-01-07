@@ -43,6 +43,8 @@
 	SSsecurity_level.set_level(SEC_LEVEL_RED)
 	SSsecurity_level.set_level(SEC_LEVEL_BLUE)
 	SSsecurity_level.set_level(SEC_LEVEL_GREEN)
+	SSsecurity_level.set_level(SEC_LEVEL_YELLOW)
+	SSsecurity_level.set_level(SEC_LEVEL_GREEN)
 
 	var/reason = "We're getting the fuck out of here"
 	var/redAlert = TRUE

@@ -28,6 +28,7 @@
 #define GLAND_HUD 			"23"//Gland indicators for abductors
 #define JANI_HUD			"24" // Sign overlay over cleanable decals
 #define PRESSURE_HUD		"25" // Pressure coloring for tiles
+#define FACTION_HUD			"26" // Faction display
 
 //by default everything in the hud_list of an atom is an image
 //a value in hud_list with one of these will change that behavior
@@ -60,6 +61,8 @@
 #define ANTAG_HUD_BLOB 					22
 #define ANTAG_HUD_ZOMBIE 				23
 #define ANTAG_HUD_MIND_FLAYER 			24
+//faction HUD
+#define DATA_HUD_FACTION				25
 
 // Notification action types
 #define NOTIFY_JUMP "jump"

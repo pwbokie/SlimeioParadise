@@ -420,7 +420,7 @@
 	if(status != LIGHT_OK || !has_power())
 		return
 
-	if(new_level_number >= SEC_LEVEL_EPSILON)
+	if(new_level_number == SEC_LEVEL_EPSILON)
 		fire_mode = TRUE
 		emergency_mode = TRUE
 		on = FALSE

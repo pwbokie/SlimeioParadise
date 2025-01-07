@@ -10,7 +10,8 @@
 	hud_possible = list(
 		HEALTH_HUD, STATUS_HUD, SPECIALROLE_HUD, // from /mob/living
 		ID_HUD, WANTED_HUD, IMPMINDSHIELD_HUD, IMPCHEM_HUD, IMPTRACK_HUD, GLAND_HUD,
-		DIAG_STAT_HUD, DIAG_HUD // for IPCs
+		DIAG_STAT_HUD, DIAG_HUD, // for IPCs
+		FACTION_HUD // for factions
 	)
 	pressure_resistance = 25
 	mob_biotypes = MOB_ORGANIC | MOB_HUMANOID
@@ -107,3 +108,6 @@
 
 	/// Lazylist of sources to track what our alpha should be, alpha is set to the minimum. Use the `set_alpha_tracking` and `get_alpha` helpers.
 	var/list/alpha_sources
+
+	// For Factions mode, the faction that the person is affiliated with.
+	var/datum/faction/factions_mode_allegiance

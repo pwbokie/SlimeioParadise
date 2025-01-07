@@ -458,6 +458,8 @@
 			data["security_level_color"] = "blue";
 		if(SEC_LEVEL_RED)
 			data["security_level_color"] = "red";
+		if(SEC_LEVEL_YELLOW)
+			data["security_level_color"] = "yellow";
 		else
 			data["security_level_color"] = "purple";
 	data["str_security_level"] = capitalize(SSsecurity_level.get_current_level_as_text())
@@ -504,6 +506,7 @@
 		list("id" = SEC_LEVEL_GAMMA,  "name" = "Gamma", "icon" = "biohazard"),
 		list("id" = SEC_LEVEL_EPSILON, "name" = "Epsilon", "icon" = "skull", "tooltip" = "Epsilon Alert will only activate after 15 or so seconds."),
 		list("id" = SEC_LEVEL_DELTA,  "name" = "Delta", "icon" = "bomb"),
+		list("id" = SEC_LEVEL_YELLOW, "name" = "Yellow", "icon" = "flag", "tooltip" = "Factions protocol.")
 	)
 
 	var/list/keys = list()
