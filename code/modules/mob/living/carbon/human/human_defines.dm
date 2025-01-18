@@ -111,3 +111,6 @@
 
 	// For Factions mode, the faction that the person is affiliated with.
 	var/datum/faction/factions_mode_allegiance
+
+/mob/living/carbon/human/fake
+	flags = ABSTRACT
