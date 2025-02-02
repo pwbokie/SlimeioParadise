@@ -156,5 +156,5 @@
 	ai_announcement_sound = 'sound/AI/yellow.ogg'
 	color = "yellow"
 	status_display_data = "yellowalert"
-	elevating_to_announcement_title = "Attention! Yellow Alert!"
-	elevating_to_announcement_text = "Factions protocol engaged! All crew, report to your assigned faction leader for instruction."
+	elevating_to_announcement_title = "Attention! Factions protocal activated!"
+	elevating_to_announcement_text = "All crew, report to your assigned faction leader for instruction."

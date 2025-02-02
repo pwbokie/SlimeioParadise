@@ -30,11 +30,26 @@
 					new_faction.add_member(player)
 			new_faction.Initialize(department.department_name)
 
+	var/list/innate_powers = get_spells_of_type(FACTIONS_INNATE_POWER)
+
 	for(var/mob/M in GLOB.player_list)
 		if (ishuman(M))
 			// update everyone's faction allegiance
 			var/mob/living/carbon/human/target = M
 			target.factions_hud_set_faction()
-			// ... then give everyone the ability to see the hud
+			// ... then give everyone the ability to see the hud...
 			var/datum/atom_hud/hud = GLOB.huds[DATA_HUD_FACTION]
 			hud.add_hud_to(target)
+			// ... and also give them the UI button for faction management.
+			for(var/power_path as anything in innate_powers)
+				var/datum/spell/factions/to_add = new power_path
+				M.mind.AddSpell(to_add)
+
+/datum/game_mode/factions/proc/get_spells_of_type(spell_type)
+	var/list/spells = list()
+	for(var/spell_path in subtypesof(/datum/spell/factions))
+		var/datum/spell/factions/spell = spell_path
+		if(initial(spell.power_type) != spell_type)
+			continue
+		spells += spell_path
+	return spells
