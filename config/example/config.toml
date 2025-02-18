@@ -609,7 +609,7 @@ enable_space_ruins = false
 # Minimum number of extra zlevels to generate and fill with ruins
 minimum_zlevels = 0
 # Maximum number of extra zlevels to generate and fill with ruins
-maximum_zlevels = 4
+maximum_zlevels = 0
 # Minimum space ruin budget.
 space_ruin_budget_min = 750
 # Maximum space ruin budget.

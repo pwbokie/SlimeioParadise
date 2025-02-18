@@ -20,6 +20,7 @@ GLOBAL_LIST_INIT(megacarp_first_names, file2list("strings/names/megacarp1.txt"))
 GLOBAL_LIST_INIT(megacarp_last_names, file2list("strings/names/megacarp2.txt"))
 GLOBAL_LIST_INIT(first_names_soviet, file2list("config/names/first_soviet_male.txt"))
 GLOBAL_LIST_INIT(last_names_soviet, file2list("config/names/last_soviet_male.txt"))
+GLOBAL_LIST_INIT(syndicate_pai_names, file2list("config/names/syndicate_pai_names.txt"))
 
 GLOBAL_LIST_INIT(verbs, file2list("config/names/verbs.txt"))
 // GLOBAL_LIST_INIT(nouns, file2list("config/names/nouns.txt")) // This is kept because we technically still have these files in the code in case we ever want to use them, but is currently unused

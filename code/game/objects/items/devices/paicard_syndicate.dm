@@ -10,7 +10,7 @@
 
 	var/mobtype = /mob/living/silicon/pai/syndicate
 
-/obj/item/paicard/syndicate/attack_self(mob/living/user)
+/obj/item/paicard/syndicate/attack_self__legacy__attackchain(mob/living/user)
 	used = TRUE
 	var/choice = tgui_alert(user, "[confirmation_message]", "Confirm", list("Yes", "No"))
 	if (choice != "Yes")
@@ -26,6 +26,7 @@
 		theghost = pick(candidates)
 		dust_if_respawnable(theghost)
 		spawn_spai(user, theghost.key)
+		// TODO: remove the item from the hand but don't blow up the thing yet
 	else
 		to_chat(user, "[failure_message]")
 		used = FALSE
@@ -41,11 +42,9 @@
 	to_chat(S, "<span class='motd'>TODO For more information, check the wiki page: ([GLOB.configuration.url.wiki_url]/index.php/SyndicatePAI)</span>")
 	S.faction = user.faction
 
-	var/wizard_name_first = pick(GLOB.wizard_first)
-	var/wizard_name_second = pick(GLOB.wizard_second)
-	var/randomname = "[wizard_name_first] [wizard_name_second]"
-	var/newname = sanitize(copytext(input(S, "You are a [mob_name]. Would you like to change your name to something else?", "Name change", randomname) as null|text,1,MAX_NAME_LEN))
+	var/spai_name = pick(GLOB.syndicate_paqqi_names)
+	var/newname = sanitize(tgui_input_text(user, "You are [spai_name], a [mob_name]. Would you like to change your name to something else?", max_length = MAX_NAME_LEN))
 
 	if(!newname)
-		newname = randomname
+		newname = spai_name
 	S.rename_character(S.real_name, newname)
