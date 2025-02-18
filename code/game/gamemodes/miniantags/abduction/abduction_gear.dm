@@ -102,12 +102,10 @@ CONTENTS:
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		H.update_inv_wear_suit()
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtons()
+	update_action_buttons()
 
 /obj/item/clothing/suit/armor/abductor/vest/item_action_slot_check(slot, mob/user)
-	if(slot == SLOT_HUD_OUTER_SUIT) //we only give the mob the ability to activate the vest if he's actually wearing it.
+	if(slot == ITEM_SLOT_OUTER_SUIT) //we only give the mob the ability to activate the vest if he's actually wearing it.
 		return 1
 
 /obj/item/clothing/suit/armor/abductor/vest/proc/SetDisguise(datum/icon_snapshot/entry)
@@ -191,12 +189,12 @@ CONTENTS:
 	item_state = "silencer"
 	origin_tech = "materials=4;programming=7;abductor=3"
 
-/obj/item/abductor/silencer/attack(mob/living/M, mob/user)
+/obj/item/abductor/silencer/attack__legacy__attackchain(mob/living/M, mob/user)
 	if(!AbductorCheck(user))
 		return
 	radio_off(M, user)
 
-/obj/item/abductor/silencer/afterattack(atom/target, mob/living/user, flag, params)
+/obj/item/abductor/silencer/afterattack__legacy__attackchain(atom/target, mob/living/user, flag, params)
 	if(flag)
 		return
 	if(!AbductorCheck(user))
@@ -245,7 +243,7 @@ CONTENTS:
 	righthand_file = 'icons/mob/inhands/weapons_righthand.dmi'
 	icon_state = "wonderprodStun"
 	item_state = "wonderprod"
-	slot_flags = SLOT_FLAG_BELT
+	slot_flags = ITEM_SLOT_BELT
 	origin_tech = "materials=4;combat=4;biotech=7;abductor=4"
 	w_class = WEIGHT_CLASS_NORMAL
 	actions_types = list(/datum/action/item_action/toggle_mode)
@@ -265,9 +263,7 @@ CONTENTS:
 
 	to_chat(usr, "<span class='notice'>You switch the baton to [txt] mode.</span>")
 	update_icon(UPDATE_ICON_STATE)
-	for(var/X in actions)
-		var/datum/action/A = X
-		A.UpdateButtons()
+	update_action_buttons()
 
 /obj/item/abductor_baton/update_icon_state()
 	switch(mode)
@@ -284,7 +280,7 @@ CONTENTS:
 			icon_state = "wonderprodProbe"
 			item_state = "wonderprodProbe"
 
-/obj/item/abductor_baton/attack(mob/target, mob/living/user)
+/obj/item/abductor_baton/attack__legacy__attackchain(mob/target, mob/living/user)
 	if(!isabductor(user))
 		return
 
@@ -316,7 +312,7 @@ CONTENTS:
 		if(BATON_PROBE)
 			ProbeAttack(L,user)
 
-/obj/item/abductor_baton/attack_self(mob/living/user)
+/obj/item/abductor_baton/attack_self__legacy__attackchain(mob/living/user)
 	toggle(user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -449,7 +445,7 @@ CONTENTS:
 	var/mob/living/marked = null
 	var/obj/machinery/abductor/console/console
 
-/obj/item/abductor/gizmo/attack_self(mob/user)
+/obj/item/abductor/gizmo/attack_self__legacy__attackchain(mob/user)
 	if(!ScientistCheck(user))
 		return
 	if(!console)
@@ -464,7 +460,7 @@ CONTENTS:
 		icon_state = "gizmo_scan"
 	to_chat(user, "<span class='notice'>You switch the device to [mode==GIZMO_SCAN? "SCAN": "MARK"] MODE</span>")
 
-/obj/item/abductor/gizmo/attack(mob/living/M, mob/user)
+/obj/item/abductor/gizmo/attack__legacy__attackchain(mob/living/M, mob/user)
 	if(!ScientistCheck(user))
 		return
 	if(!console)
@@ -477,7 +473,7 @@ CONTENTS:
 		if(GIZMO_MARK)
 			mark(M, user)
 
-/obj/item/abductor/gizmo/afterattack(atom/target, mob/living/user, flag, params)
+/obj/item/abductor/gizmo/afterattack__legacy__attackchain(atom/target, mob/living/user, flag, params)
 	if(flag)
 		return
 	if(!ScientistCheck(user))
@@ -531,7 +527,7 @@ CONTENTS:
 	item_state = "silencer"
 	var/mode = MIND_DEVICE_MESSAGE
 
-/obj/item/abductor/mind_device/attack_self(mob/user)
+/obj/item/abductor/mind_device/attack_self__legacy__attackchain(mob/user)
 	if(!ScientistCheck(user))
 		return
 
@@ -543,7 +539,7 @@ CONTENTS:
 		icon_state = "mind_device_message"
 	to_chat(user, "<span class='notice'>You switch the device to [mode == MIND_DEVICE_MESSAGE ? "TRANSMISSION" : "COMMAND"] MODE</span>")
 
-/obj/item/abductor/mind_device/afterattack(atom/target, mob/living/user, flag, params)
+/obj/item/abductor/mind_device/afterattack__legacy__attackchain(atom/target, mob/living/user, flag, params)
 	if(!ScientistCheck(user))
 		return
 
@@ -766,7 +762,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 	origin_tech = "materials=2;biotech=2;abductor=2"
 	toolspeed = 0.25
 
-/obj/item/FixOVein/alien
+/obj/item/fix_o_vein/alien
 	name = "alien FixOVein"
 	desc = "Bloodless aliens would totally know how to stop internal bleeding... Right?"
 	icon = 'icons/obj/abductor.dmi'
