@@ -42,7 +42,9 @@
 	to_chat(S, "<span class='motd'>TODO For more information, check the wiki page: ([GLOB.configuration.url.wiki_url]/index.php/SyndicatePAI)</span>")
 	S.faction = user.faction
 
-	var/spai_name = pick(GLOB.syndicate_paqqi_names)
+	playsound(loc, 'sound/mecha/nominaltiny.ogg', 75, 0)
+
+	var/spai_name = pick(GLOB.syndicate_pai_names)
 	var/newname = sanitize(tgui_input_text(user, "You are [spai_name], a [mob_name]. Would you like to change your name to something else?", max_length = MAX_NAME_LEN))
 
 	if(!newname)
