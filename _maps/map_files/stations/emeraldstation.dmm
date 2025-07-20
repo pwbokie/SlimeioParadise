@@ -21525,7 +21525,7 @@
 /turf/simulated/floor/plating,
 /area/station/maintenance/starboard)
 "eqz" = (
-/mob/living/simple_animal/hostile/retaliate/carp/koi{
+/mob/living/basic/retaliate/carp/koi{
 	name = "Jeremy"
 	},
 /turf/simulated/floor/carpet/red,

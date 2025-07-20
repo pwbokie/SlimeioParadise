@@ -1,27 +1,28 @@
 
-/mob/living/simple_animal/hostile/retaliate/carp
+/mob/living/basic/retaliate/carp
 	name = "sea carp"
 	desc = "A large fish bearing similarities to a certain space-faring menace."
 	icon = 'icons/mob/carp.dmi'
 	icon_state = "carp"
 	icon_gib = "carp_gib"
 	mob_biotypes = MOB_ORGANIC | MOB_BEAST
-	speak_chance = 0
-	turns_per_move = 5
 	butcher_results = list(/obj/item/food/carpmeat = 1)
-	response_help = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm = "hits"
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "gently pushes aside"
+	response_disarm_simple = "gently push aside"
+	attack_verb_continuous = "bites"
+	attack_verb_simple = "bite"
+	melee_attack_cooldown_min = 1.5 SECONDS
+	melee_attack_cooldown_max = 2.5 SECONDS
 	speed = 0
 	maxHealth = 25
 	health = 25
-	retreat_distance = 6
-	vision_range = 5
 	harm_intent_damage = 8
 	melee_damage_lower = 15
 	melee_damage_upper = 15
-	attacktext = "bites"
 	attack_sound = 'sound/weapons/bite.ogg'
+	ai_controller = /datum/ai_controller/basic_controller/simple/sea_carp
 	speak_emote = list("gnashes")
 	faction = list("carp")
 	initial_traits = list(TRAIT_FLYING)
@@ -44,19 +45,19 @@
 	"palegreen" = "#7ef099", \
 	)
 
-/mob/living/simple_animal/hostile/retaliate/carp/Initialize(mapload)
+/mob/living/basic/retaliate/carp/Initialize(mapload)
 	. = ..()
 	carp_randomify()
 	update_icons()
 
-/mob/living/simple_animal/hostile/retaliate/carp/proc/carp_randomify(rarechance)
+/mob/living/basic/retaliate/carp/proc/carp_randomify(rarechance)
 	// Simplified version of: /mob/living/simple_animal/hostile/carp/proc/carp_randomify(rarechance)
 	var/our_color
 	our_color = pick(carp_colors)
 	add_atom_colour(carp_colors[our_color], FIXED_COLOUR_PRIORITY)
 	regenerate_icons()
 
-/mob/living/simple_animal/hostile/retaliate/carp/koi
+/mob/living/basic/retaliate/carp/koi
 	name = "space koi"
 	desc = "A gentle space-faring koi."
 	icon = 'icons/obj/fish_items.dmi'
@@ -71,13 +72,13 @@
 	butcher_results = list(/obj/item/food/salmonmeat = 1)
 
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
-	minbodytemp = 0
-	maxbodytemp = 1500
+	minimum_survivable_temperature = 0
+	maximum_survivable_temperature = 1500
 
 	gold_core_spawnable = HOSTILE_SPAWN
 	var/randomize_icon = TRUE
 
-/mob/living/simple_animal/hostile/retaliate/carp/koi/Initialize(mapload)
+/mob/living/basic/retaliate/carp/koi/Initialize(mapload)
 	. = ..()
 	if(randomize_icon)
 		var/koinum = rand(1, 4)
@@ -85,11 +86,20 @@
 		icon_living = "koi[koinum]"
 		icon_dead = "koi[koinum]-dead"
 
-/mob/living/simple_animal/hostile/retaliate/carp/koi/Process_Spacemove(movement_dir = 0, continuous_move = FALSE)
+/mob/living/basic/retaliate/carp/koi/Process_Spacemove(movement_dir = 0, continuous_move = FALSE)
 	return TRUE
 
-/mob/living/simple_animal/hostile/retaliate/carp/koi/honk
+/mob/living/basic/retaliate/carp/koi/honk
 	icon_state = "koi5"
 	icon_living = "koi5"
 	icon_dead = "koi5-dead"
 	randomize_icon = FALSE
+
+/datum/ai_controller/basic_controller/simple/sea_carp
+	ai_traits = AI_FLAG_STOP_MOVING_WHEN_PULLED
+	max_target_distance = 6
+	planning_subtrees = list(
+		/datum/ai_planning_subtree/target_retaliate,
+		/datum/ai_planning_subtree/basic_melee_attack_subtree,
+		/datum/ai_planning_subtree/flee_target
+	)
