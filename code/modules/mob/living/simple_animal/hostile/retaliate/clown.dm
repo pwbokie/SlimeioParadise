@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/retaliate/clown
+/mob/living/basic/retaliate/clown
 	name = "Clown"
 	desc = "A strange creature that vaguely resembles a normal clown. Upon closer inspection, it is nothing of the sort."
 	icon = 'icons/mob/simple_human.dmi'
@@ -8,9 +8,14 @@
 	icon_gib = "clown_gib"
 	mob_biotypes = MOB_ORGANIC | MOB_HUMANOID
 	turns_per_move = 5
-	response_help = "pokes the"
-	response_disarm = "gently pushes aside the"
-	response_harm = "hits the"
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "gently pushes aside"
+	response_disarm_simple = "gently push aside"
+	attack_verb_continuous = "bites"
+	attack_verb_simple = "bite"
+	melee_attack_cooldown_min = 1.5 SECONDS
+	melee_attack_cooldown_max = 2.5 SECONDS
 	speak = list("HONK", "Honk!", "Come join the fun!")
 	emote_see = list("honks")
 	speak_chance = 1
@@ -33,6 +38,8 @@
 	footstep_type = FOOTSTEP_MOB_SHOE
 	contains_xeno_organ = TRUE
 	surgery_container = /datum/xenobiology_surgery_container/clown
+	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
+
 
 /mob/living/simple_animal/hostile/retaliate/clown/goblin
 	icon = 'icons/mob/animal.dmi'
