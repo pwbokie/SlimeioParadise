@@ -14814,7 +14814,7 @@
 	},
 /area/station/hallway/primary/fore)
 "aZy" = (
-/mob/living/simple_animal/hostile/retaliate/carp/koi{
+/mob/living/basic/retaliate/carp/koi{
 	name = "Jeremy"
 	},
 /turf/simulated/floor/beach/water{
@@ -71120,7 +71120,7 @@
 	},
 /area/station/command/office/rd)
 "ppz" = (
-/mob/living/simple_animal/hostile/retaliate/carp/koi{
+/mob/living/basic/retaliate/carp/koi{
 	sentience_type = 3
 	},
 /obj/machinery/light{

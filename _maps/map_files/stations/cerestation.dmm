@@ -22280,7 +22280,7 @@
 /turf/simulated/floor/plating,
 /area/station/maintenance/maintcentral)
 "dkL" = (
-/mob/living/simple_animal/hostile/retaliate/carp/koi{
+/mob/living/basic/retaliate/carp/koi{
 	name = "Jeremy"
 	},
 /turf/simulated/floor/beach/water{

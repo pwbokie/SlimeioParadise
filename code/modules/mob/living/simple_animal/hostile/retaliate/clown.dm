@@ -41,7 +41,7 @@
 	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
 
 
-/mob/living/simple_animal/hostile/retaliate/clown/goblin
+/mob/living/basic/retaliate/clown/goblin
 	icon = 'icons/mob/animal.dmi'
 	name = "clown goblin"
 	desc = "A tiny walking mask and clown shoes. You want to honk his nose!"
@@ -62,7 +62,7 @@
 	del_on_death = TRUE
 	loot = list(/obj/item/clothing/mask/gas/clown_hat, /obj/item/clothing/shoes/clown_shoes)
 
-/mob/living/simple_animal/hostile/retaliate/clown/goblin/cluwne
+/mob/living/basic/retaliate/clown/goblin/cluwne
 	name = "cluwne goblin"
 	desc = "A tiny pile of misery and evil. Kill this thing before it comes for your family."
 	icon_state = "cluwnegoblin"
